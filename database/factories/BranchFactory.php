@@ -17,13 +17,12 @@ class BranchFactory extends Factory
      */
     public function definition(): array
     {
-
         $regions = array_rand([4,10],1);
 
         $city_id = [4,10][$regions] == 4 ? fake()->numberBetween(1,8) : fake()->numberBetween(9,15);
         return [
             'name' => fake()->name(),
-            'brand_id' => fake()->numberBetween(1,5),
+            'brand_id' => fake()->numberBetween(1,4),
             'region_id' => [4,10][$regions],
             'city_id' => $city_id,
         ];

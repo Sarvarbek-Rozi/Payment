@@ -29,16 +29,14 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('store', [UserController::class,'store']);
     Route::delete('destroy/{id}', [UserController::class,'destroy']);
     Route::put('update/{id}', [UserController::class,'update']);
-
 });
-
-Route::get('getbranches',[BranchController::class,'fullReportbranches']);
-Route::get('docs    ',[BranchController::class,'fullReportbranches']);
+Route::get('docs',[BranchController::class,'fullReportbranches']);
 
 Route::apiResource('users', UserController::class);
 Route::middleware(['auth:users'])->group(function () {
     Route::apiResource('brands', BrandController::class);
     Route::apiResource('branches', BranchController::class);
+    Route::get('getbranches',[BranchController::class,'fullReportbranches']);
 
 });
 
